@@ -1,14 +1,3 @@
-# zhash - Lifted Racket Hash for Rosette
-The `zhash` lifts racket's `hash` for rosette. It supports reasoning about symbolic keys and values.
-
-## Requirements
-
-- Racket 8.0+ ([https://racket-lang.org/](https://racket-lang.org/))
-- Rosette 4.0 ([https://github.com/emina/rosette](https://github.com/emina/rosette))
-
-## Usage
-
-```lisp
 #lang rosette
 (require "./zhash.rkt")
 
@@ -84,9 +73,3 @@ The `zhash` lifts racket's `hash` for rosette. It supports reasoning about symbo
 ; uurr --- 77 --- jjkk
 (printf "6-1: ~v\n" (solve (assert (not (zhash-has-key? z6 "uurr"))))) ; expected: unsat, because b needs to be: b<=29 and b>=77
 (printf "6-2: ~v\n" (solve (assert (zhash-has-key? z6 "uurr")))) ; expected: 29<b<77
-
-```
-
-## Notes and TODOs
-
-- Automatically expanding capacity if exceeded.
