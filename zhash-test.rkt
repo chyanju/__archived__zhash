@@ -7,25 +7,25 @@
 ; - zvoid is a pre-defined symbol for representing empty value slot
 ;   you can use other values instead for better performance, e.g., #f
 ; - capacity 10 means the zhash can hold up to 10 different keys
-(define z0 (make-zhash 10 zvoid))
+(define z0 (make-zhash 10))
 (zhash-set! z0 "apple" 2)
 (zhash-set! z0 20908 8)
 
 ; basic usage: symbolic key
 (clear-vc!)
-(define z1 (make-zhash 10 zvoid))
+(define z1 (make-zhash 10))
 (define-symbolic b1 integer?)
 (if (> b1 0) (zhash-set! z1 "apple" 2) (zhash-set! z1 "banana" 3))
 
 ; basic usage: capacity exception
 ; (clear-vc!)
-; (define z2 (make-zhash 10 zvoid))
+; (define z2 (make-zhash 10))
 ; (for ([i (range 10)]) (zhash-set! z2 i i))
 ; (zhash-set! z2 10 10)
 
 ; basic usage: symbolic key (union), concret value
 (clear-vc!)
-(define z3 (make-zhash 10 zvoid))
+(define z3 (make-zhash 10))
 (define-symbolic b3 integer?)
 (define l3 (list "apple" "banana" "cat" "dog"))
 (define k3 (list-ref l3 b3))
@@ -37,7 +37,7 @@
 
 ; basic usage: symbolic key (union), symbolic value
 (clear-vc!)
-(define z4 (make-zhash 10 zvoid))
+(define z4 (make-zhash 10))
 (define-symbolic b4 integer?)
 (define l4 (list "apple" "banana" "cat" "dog"))
 (define m4 (list 999 888 777 666))
@@ -49,7 +49,7 @@
 
 ; basic usage: symbolic execution
 (clear-vc!)
-(define z5 (make-zhash 10 zvoid))
+(define z5 (make-zhash 10))
 (define-symbolic b5 integer?)
 (if (> b5 9)
 	(zhash-set! z5 "wonderful" 89)
@@ -58,7 +58,7 @@
 
 ; basic usage: symbolic execution + update
 (clear-vc!)
-(define z6 (make-zhash 10 zvoid))
+(define z6 (make-zhash 10))
 (define-symbolic b6 integer?)
 (if (> b6 29)
 	(zhash-set! z6 "uurr" 87)

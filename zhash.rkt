@@ -1,5 +1,7 @@
 #lang rosette
-(provide (all-defined-out))
+(provide (except-out (all-defined-out)
+    println-and-exit
+))
 
 ; forewords (some clarifications for reference)
 ; 1. a term is a symbolic
@@ -22,10 +24,10 @@
     )
 )
 
-; cap - capacity, ev - empty value, k2i - key to index map, vvec - value vector
-(struct zhash (cap ev k2i vvec) #:mutable #:transparent #:reflection-name 'zhash)
+; cap - capacity, iv - initial value, ev - empty value, k2i - key to index map, vvec - value vector
+(struct zhash (cap iv ev k2i vvec) #:mutable #:transparent #:reflection-name 'zhash)
 ; by default, k2i is an empty hash, vvec is a vector of default value ev
-(define (make-zhash cap ev) (zhash cap ev (make-hash) (make-vector cap ev)))
+(define (make-zhash cap #:iv [iv zvoid] #:ev [ev zvoid]) (zhash cap iv ev (make-hash) (make-vector cap iv)))
 (define (zhash-keys arg-zhash) (zhash-k2i arg-zhash))
 (define (zhash-vals arg-zhash) (zhash-vvec arg-zhash))
 
@@ -131,18 +133,3 @@
     )
     (exhaustive-set! arg-key)
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
