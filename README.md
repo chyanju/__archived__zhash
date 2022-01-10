@@ -1,10 +1,11 @@
 # zhash - Lifted Racket Hash for Rosette
 The `zhash` lifts racket's `hash` for rosette. It supports reasoning about symbolic keys and values.
 
-## Requirements
+## Prerequisites
 
-- Racket 8.0+ ([https://racket-lang.org/](https://racket-lang.org/))
-- Rosette 4.0 ([https://github.com/emina/rosette](https://github.com/emina/rosette))
+- racket 8.0+ ([https://racket-lang.org/](https://racket-lang.org/))
+- rosette 4.0+ ([https://github.com/emina/rosette](https://github.com/emina/rosette))
+  - Note that `zhash` is *not* backward compatible with previous versions of rosette (e.g. 3.2).
 
 ## Usage
 
